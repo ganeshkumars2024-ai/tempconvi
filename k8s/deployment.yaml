@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temperature-converter
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: temperature-converter
+  template:
+    metadata:
+      labels:
+        app: temperature-converter
+    spec:
+      containers:
+      - name: temperature-converter
+        image: 24mis0260/temperature-converter:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
